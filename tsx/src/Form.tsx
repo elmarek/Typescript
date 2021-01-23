@@ -1,16 +1,21 @@
 import React from "react";
 
+interface State {
+  name: string;
+  email: string;
+  password: string;
+}
 function Form() {
-  const [state, setState] = React.useState({
+
+  let [state, setState] = React.useState<State>({
     name: "",
     email: "",
     password: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState((prevProps) => ({
-      ...prevProps,
-      [e.currentTarget.name]: e.currentTarget.value,
+    setState((prevState: state) => ({
+      [e.currentTarget.name: string]: e.currentTarget.value: string,
     }));
   };
 
@@ -32,8 +37,8 @@ function Form() {
       <input
         type="text"
         name="name"
-        value={state.name}
         onChange={handleChange}
+        defaultValue={state.name}
       />
 
       <br></br>
