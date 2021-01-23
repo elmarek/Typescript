@@ -6,7 +6,6 @@ interface State {
   password: string;
 }
 function Form() {
-
   let [state, setState] = React.useState<State>({
     name: "",
     email: "",
@@ -14,9 +13,10 @@ function Form() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState((prevState: state) => ({
-      [e.currentTarget.name: string]: e.currentTarget.value: string,
-    }));
+    setState({
+      ...state,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
