@@ -1,5 +1,14 @@
 // import React from "react";
 import "./App.css";
+const db = require("./database/db.js");
+
+db.find({}, (error: any, results: any) => {
+  if (error) {
+    throw error;
+  } else {
+    console.log(results);
+  }
+});
 
 function App() {
   return (
